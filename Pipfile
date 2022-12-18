@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+aiohttp = "*"
+# pyyaml = "*"
+# sqlalchemy = "*"
+# alembic = "*"
+psycopg2 = "*"
+aiohttp-jinja2 = "*"
+beautifulsoup4 = "*"
+lxml = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"

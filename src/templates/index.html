@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Organizer</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    />
+  </head>
+  <body>
+    <main class="container">
+      <nav style="margin-bottom: 20px; border-bottom: 2px solid; padding-left: 30px">
+        <ul>
+          <li><a href="/updateUP" role="button">Ukrainska Pravda</a></li>
+          <li><a href="/updateLUM" role="button">LiveUaMap</a></li>
+          <li><a href="/" role="button">Reset</a></li>
+        </ul>
+      <form method="POST" action="/" style="margin-left: auto; margin-right: auto;">
+
+      </form>
+      </nav>
+      {% if news_up: %}
+        <p><b>News from </b> <a href={{news_up["source"]}}> <b>Ukrainska Pravda</b></a> <b>for {{news_up["date"]}}</b></p>
+        <p><a href="/source_ukr_pravda">Source</a></p>
+
+      {% for article in news_up['news']:%}
+      <ul>
+        <li>
+            <p><b>{{article["time"]}} :</b> <a href={{article["link"]}}> {{article["title"]}}</a></p>
+        </li>
+      </ul>
+      {% endfor %}
+      {% endif %}
+
+
+      {% if news_lum: %}
+        <p><b>Last news from </b> <a href={{news_lum["source"]}}> <b>LiveUaMap</b></a> </p>
+        <p><a href="/liveuamap_source">Source</a></p>
+
+      {% for article in news_lum['news']:%}
+      <ul>
+        <li>
+            <p><b>{{article["time"]}} :</b> <a href={{article["link"]}}> {{article["title"]}}</a></p>
+        </li>
+      </ul>
+      {% endfor %}
+      {% endif %}
+    </main>
+  </body>
+</html>
